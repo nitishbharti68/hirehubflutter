@@ -37,4 +37,8 @@ List<String> skills = [
   "AWS",
 ];
 
-List<String> profile = [];
+// List<String> profile = [];
+
+String username = '';
+String userUid = '';
+String profile = '';

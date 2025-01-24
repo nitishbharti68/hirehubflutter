@@ -5,6 +5,7 @@ import 'package:hirehub/constants/app_constants.dart';
 import 'package:hirehub/views/common/custom_outline_btn.dart';
 import 'package:hirehub/views/common/exports.dart';
 import 'package:hirehub/views/screens/mainscreen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class PageThree extends StatelessWidget {
   const PageThree({super.key});
@@ -42,9 +43,16 @@ class PageThree extends StatelessWidget {
                   height: 15,
                 ),
                 CustomOutlineBtn(
-                  onTap: (){
-                    Get.to(()=> const Mainscreen(),);
-                  },
+                    onTap: () async {
+                      final SharedPreferences prefs =
+                          await SharedPreferences.getInstance();
+
+                      prefs.setBool('entrypoint', true);
+                      // all the above is used for that app don't starts from the very first welcome page but from MainScreen.
+                      Get.to(
+                        () => const MainScreen(),
+                      );
+                    },
                     hieght: hieght * 0.05,
                     width: width * 0.8,
                     text: 'Continue as guest',

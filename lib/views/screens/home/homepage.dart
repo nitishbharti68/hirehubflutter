@@ -12,6 +12,7 @@ import '../../../constants/app_constants.dart';
 import '../../common/app_style.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import '../auth/login_page.dart';
+import '../auth/profile_page.dart';
 import '../jobs/widgets/popularJobs.dart';
 
 class HomePage extends StatefulWidget {
@@ -36,8 +37,8 @@ class _HomePageState extends State<HomePage> {
               padding: EdgeInsets.all(12.0.h),
               child: GestureDetector(
                 onTap: () {
-                  // Get.to(() => const ProfilePage(drawer: false));
-                  Get.to(() => const LoginPage());
+                  Get.to(() => const ProfilePage(drawer: false));
+                  // Get.to(() => const LoginPage());
                 },
                 child: ClipRRect(
                   borderRadius: const BorderRadius.all(

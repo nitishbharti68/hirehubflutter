@@ -12,14 +12,14 @@ import 'package:hirehub/views/screens/chat/chat_list.dart';
 import 'package:hirehub/views/screens/home/homepage.dart';
 import 'package:provider/provider.dart';
 
-class Mainscreen extends StatefulWidget {
-  const Mainscreen({super.key});
+class MainScreen extends StatefulWidget {
+  const MainScreen({super.key});
 
   @override
-  State<Mainscreen> createState() => _MainscreenState();
+  State<MainScreen> createState() => _MainScreenState();
 }
 
-class _MainscreenState extends State<Mainscreen> {
+class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

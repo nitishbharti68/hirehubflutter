@@ -13,11 +13,20 @@ import 'package:hirehub/controllers/zoom_provider.dart';
 import 'package:hirehub/views/screens/mainscreen.dart';
 import 'package:hirehub/views/screens/onboarding/onboarding_screen.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 Widget defaultHome = const OnboardingScreen();
+
 ///TODO: Hook the app to firebase using firebase cli
 void main() async {
- 
+  WidgetsFlutterBinding.ensureInitialized();
+  final SharedPreferences prefs = await SharedPreferences.getInstance();
+  final entrypoint = prefs.getBool('entrypoint') ?? false;
+
+  if(entrypoint == true){
+    defaultHome = const MainScreen();
+  }
+  // all the above is used for that app don't starts from the very first welcome page but from MainScreen.
 
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create: (context) => OnBoardNotifier()),
@@ -29,6 +38,7 @@ void main() async {
     ChangeNotifierProvider(create: (context) => ProfileNotifier()),
   ], child: const MyApp()));
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
